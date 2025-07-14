@@ -1,0 +1,261 @@
+
+
+/* Importar la fuente Outfit desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+/* Variables globales */
+:root {
+  /* Tipografía */
+  --font-family: 'Outfit', sans-serif;
+  --font-size: 18px;
+
+  /* Breakpoints (tamaños de diseño) */
+  --breakpoint-mobile: 375px;
+  --breakpoint-desktop: 1440px;
+
+  /* Colores Primarios */
+  --blue-500: hsl(215, 51%, 70%);
+  --cyan-400: hsl(178, 100%, 50%);
+
+  /* Colores Neutrales */
+  --blue-950: hsl(217, 54%, 11%);   /* Fondo principal */
+  --blue-900: hsl(216, 50%, 16%);   /* Fondo de la tarjeta */
+  --blue-800: hsl(215, 32%, 27%);   /* Línea divisoria */
+  --white: hsl(0, 0%, 100%);
+}
+
+
+/* reseteo del nav  */
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin:  0 ;
+}
+
+
+
+
+
+/* Aplicar la fuente base y tamaño de texto */
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  background-color: var(--blue-950); 
+  color: var(--white); 
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+
+}
+
+
+main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.card{
+  background-color: var(--blue-900);
+  padding: 2rem;
+  border-radius: 1rem;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3); /* sombra opcional */
+  display: flex;
+  flex-direction: column;
+  gap: 1.5;
+
+
+
+
+
+}
+
+.card figure{
+  margin: 0;
+  width: 100%;
+  position: relative;
+
+  
+}
+
+.card figure img{
+  display: block;
+  width: 100%;
+  border-radius: 1rem;
+}
+
+.card .card-body h1{
+  margin: 1.5625rem 0 1.5rem 0;
+  font-size: 24px;
+}
+
+
+.card .card-body h1:hover{
+  color: var(--cyan-400);
+}
+
+.card .card-body p{
+  font-size: var(--font-size);
+  font-weight: 300;
+  color: var(--blue-500);
+  line-height: 1.5;
+}
+
+
+
+.card .card-body .card-info {
+  margin: 21px 0 21px 0;
+  display: flex;
+  justify-content: space-between;
+  color: var(--blue-500);
+
+
+
+}
+
+.card .card-body .card-info .price {
+  color: var(--cyan-400);
+  
+
+
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  gap: 1rem; 
+  margin-top: 1rem;
+
+ 
+
+}
+
+.card-footer img{
+  width: 12%;
+  border-radius: 100%;
+  border: 1px solid white;
+}
+
+
+.card-footer .author {
+  color: var(--blue-500);
+  font-size: 1rem;
+}
+
+.card-footer .author strong {
+  color: var(--white);
+  font-weight: 400;
+}
+
+.card-footer .author strong:hover {
+  color: var(--cyan-400);
+  cursor: pointer;
+  
+}
+
+
+
+hr {
+  border: none;                        /* quita el borde por defecto */
+  height: 1px;                         /* define el grosor de la línea */
+  background-color: var(--blue-800);  /* ahora sí: color visible */
+  margin: 1.5rem 0;                    /* espacio arriba y abajo */
+}
+
+
+
+.attribution a {
+  text-decoration: none;
+
+
+}
+
+.overlay{
+  position:absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: hsla(178, 100%, 50%, 0.5);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.7rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+}
+.overlay .view-icon{
+  width: 48px;
+  height: 48px;
+
+}
+
+
+
+/* Al pasar el mouse: mostrar overlay */
+.card-image:hover .overlay {
+  opacity: 1;
+}
+
+
+
+
+
+/* Responsive */
+
+@media screen and (max-width: 722px){
+
+
+  .card{
+    max-width: 85%;
+    padding: 2.5rem;
+  }
+
+
+
+  .card .card-body h1{
+    margin-top: 32px;
+    font-size: clamp(0.875rem, -0.5434rem + 6.0519vw, 2.1875rem);
+  }
+
+  .card .card-body p{
+  font-size: clamp(0.875rem, -0.0706rem + 4.0346vw, 1.75rem);
+  font-weight: 300;
+  color: var(--blue-500);
+  line-height: 1.5;
+}
+
+
+.card .card-body .card-info .price {
+  font-size: clamp(0.875rem, 0.132rem + 3.17vw, 1.5625rem);
+  font-weight: 600;
+}
+
+.card .card-body .card-info .time-left {
+  font-size: clamp(0.875rem, 0.132rem + 3.17vw, 1.5625rem);
+ 
+}
+
+
+.card-footer .author {
+  
+font-size: clamp(0.875rem, -0.0031rem + 3.7464vw, 1.6875rem);
+}
+
+.attribution{
+  font-size: clamp(0.875rem, 0.6048rem + 1.1527vw, 1.125rem);
+}
+
+
+
+
+}
+
